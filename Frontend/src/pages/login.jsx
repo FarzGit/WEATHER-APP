@@ -30,11 +30,14 @@ const Login = () => {
 
                 const { email, password } = values
                 const response = await axios.post(`${BASE_URL}/login`, { email, password });
-                const { token } = response.data;
+                const { token,userId } = response.data;
                 console.log('Login successful:', token);
+                console.log('Login successful:', userId);
 
                 if (token) {
                     localStorage.setItem('jwt', token);
+                    localStorage.setItem('userId', userId);
+
                     navigate('/dashboard')
 
                 }
