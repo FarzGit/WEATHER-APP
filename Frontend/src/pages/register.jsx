@@ -121,7 +121,7 @@ const Register = () => {
                 </form>
                 <div className=" flex justify-center text-[13px] pt-2 ">
                     <span className="text-gray-600">
-                        Already have an account ?<Link to='/login' className="text-blue-500"> SignIn</Link>
+                        Already have an account ?<Link to='/' className="text-blue-500"> SignIn</Link>
                     </span>
                 </div>
 

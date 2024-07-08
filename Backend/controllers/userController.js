@@ -136,7 +136,6 @@ const forcastWeather = async (req, res) => { // In this function written the log
         const { lat, lon } = req.query;
         if (!lat && lon) return res.status(400).json({ message: 'City is required' });
         const forcastWeather = await getForcastWeatherData(lat, lon, 'forecast');
-        console.log(forcastWeather)
         res.json(forcastWeather);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching weather data', error });
@@ -157,7 +156,9 @@ const postFavorites = async (req, res) => { // In this function written the logi
                 userId: id
             }
         });
-        res.json(favorite);
+        if (favorite) {
+            res.status(200).json({ message: 'Successfully added favorite city', favorite });
+        }
     } catch (error) {
         res.status(500).json({ message: 'Error adding favorite city', error });
     }
